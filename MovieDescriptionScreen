@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MovieDescriptionScreen(),
+    );
+  }
+}
+
+class MovieDescriptionScreen extends StatelessWidget {
+  final String title = "Joker";
+  final String year = "2019";
+  final String director = "Todd Phillips";
+  final String genre = "Drama, Crimen, Thriller";
+  final String synopsis =
+      "Arthur Fleck, un hombre ignorado por la sociedad, busca conectar mientras camina por las calles de Gotham. "
+      "Trabajando como payaso de día y aspirando a ser comediante de noche, descubre que la vida no siempre se ríe con él. "
+      "Una serie de decisiones desafortunadas lo lleva a un descenso por la locura, dando origen a su alter ego: el Joker.";
+  final String imageUrl =
+      "https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Descripción de la Película'),
+        backgroundColor: Colors.teal,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+           
+              Center(
+                child: Image.network(
+                  imageUrl,
+                  height: 300,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(height: 20),
+             
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10),
+            
+              Text(
+                "Año: $year",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                ),
+              ),
+              SizedBox(height: 5),
+              
+              Text(
+                "Director: $director",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                ),
+              ),
+              SizedBox(height: 5),
+           
+              Text(
+                "Género: $genre",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                ),
+              ),
+              SizedBox(height: 20),
+              // Sinopsis
+              Text(
+                "Sinopsis:",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                synopsis,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[800],
+                ),
+                textAlign: TextAlign.justify,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
